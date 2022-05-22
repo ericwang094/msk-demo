@@ -1,0 +1,131 @@
+{
+    "ipcMode": null,
+    "executionRoleArn": "arn:aws:iam::648641612148:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+      {
+        "dnsSearchDomains": null,
+        "environmentFiles": null,
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "secretOptions": null,
+          "options": {
+            "awslogs-group": "/ecs/cp-rest-proxy",
+            "awslogs-region": "eu-west-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        },
+        "entryPoint": [
+          "sh",
+          "-c",
+          "export KAFKA_REST_HOST_NAME=$HOSTNAME;/etc/confluent/docker/run"
+        ],
+        "portMappings": [
+          {
+            "hostPort": 8082,
+            "protocol": "tcp",
+            "containerPort": 8082
+          }
+        ],
+        "command": null,
+        "linuxParameters": null,
+        "cpu": 0,
+        "environment": [
+          {
+            "name": "KAFKA_REST_BOOTSTRAP_SERVERS",
+            "value": "b-3.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:9092,b-1.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:9092,b-2.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:9092"
+          },
+          {
+            "name": "KAFKA_REST_SCHEMA_REGISTRY_URL",
+            "value": "http://cp-schema-registry:8081"
+          }
+        ],
+        "resourceRequirements": null,
+        "ulimits": null,
+        "dnsServers": null,
+        "mountPoints": [],
+        "workingDirectory": null,
+        "secrets": null,
+        "dockerSecurityOptions": null,
+        "memory": null,
+        "memoryReservation": 500,
+        "volumesFrom": [],
+        "stopTimeout": null,
+        "image": "confluentinc/cp-kafka-rest:5.5.1",
+        "startTimeout": null,
+        "firelensConfiguration": null,
+        "dependsOn": null,
+        "disableNetworking": null,
+        "interactive": null,
+        "healthCheck": null,
+        "essential": true,
+        "links": null,
+        "hostname": null,
+        "extraHosts": null,
+        "pseudoTerminal": null,
+        "user": null,
+        "readonlyRootFilesystem": null,
+        "dockerLabels": null,
+        "systemControls": null,
+        "privileged": null,
+        "name": "cp-rest-proxy"
+      }
+    ],
+    "placementConstraints": [],
+    "memory": "512",
+    "taskRoleArn": null,
+    "compatibilities": [
+      "EC2",
+      "FARGATE"
+    ],
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-1:648641612148:task-definition/cp-rest-proxy:1",
+    "family": "cp-rest-proxy",
+    "requiresAttributes": [
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "ecs.capability.execution-role-awslogs"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+      },
+      {
+        "targetId": null,
+        "targetType": null,
+        "value": null,
+        "name": "ecs.capability.task-eni"
+      }
+    ],
+    "pidMode": null,
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "revision": 1,
+    "status": "ACTIVE",
+    "inferenceAccelerators": null,
+    "proxyConfiguration": null,
+    "volumes": []
+  }

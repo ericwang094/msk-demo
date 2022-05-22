@@ -1,0 +1,6 @@
+Environment variables:
+KAFKA_REST_BOOTSTRAP_SERVERS: <>
+KAFKA_REST_SCHEMA_REGISTRY_URL: <>
+
+Entry Point: 
+sh,-c,export KAFKA_REST_HOST_NAME=$HOSTNAME;/etc/confluent/docker/run

@@ -1,0 +1,28 @@
+[
+    {
+      "labels": {
+        "job": "jmx"
+      },
+      "targets": [
+        "b-4.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11001",
+        "b-2.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11001",
+        "b-1.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11001",
+        "b-5.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11001",
+        "b-3.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11001",
+        "b-6.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11001"
+      ]
+    },
+    {
+      "labels": {
+        "job": "node"
+      },
+      "targets": [
+        "b-4.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11002",
+        "b-2.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11002",
+        "b-1.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11002",
+        "b-5.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11002",
+        "b-3.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11002",
+        "b-6.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:11002"
+      ]
+    }
+  ]

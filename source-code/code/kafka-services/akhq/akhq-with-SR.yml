@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Join ['', [/ecs/, akhq, TaskDefinition]]
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    DependsOn: LogGroup
+    Properties: 
+      ContainerDefinitions: 
+        - Name: akhq
+          Image: tchiotludo/akhq:0.14.1
+          PortMappings:
+            - ContainerPort: 8080
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-group: !Ref LogGroup
+              awslogs-stream-prefix: ecs
+          # https://github.com/tchiotludo/akhq#kafka-cluster-configuration
+          Environment:
+            - Name: AKHQ_CONFIGURATION
+              Value: |
+                akhq:
+                  connections:
+                    msk-cluster:
+                      properties:
+                        bootstrap.servers: "b-1.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:9092,b-2.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:9092,b-3.mskclusterdemo.9xca1s.c2.kafka.eu-west-1.amazonaws.com:9092"
+                      schema-registry:
+                        url: "http://cp-schema-registry.local:8081/"
+                      # connect:
+                        # url: "http://<>"
+      Cpu: 256
+      ExecutionRoleArn: 
+      Memory: 0.5GB
+      NetworkMode: awsvpc
+      RequiresCompatibilities: 
+        - FARGATE
+      ExecutionRoleArn: ecsTaskExecutionRole
