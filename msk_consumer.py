@@ -19,7 +19,7 @@ def main(args):
         consumer = KafkaConsumer(bootstrap_servers=bootstrap_server)
         consumer.subscribe([topic])
         for msg in consumer:
-            log.info("consumer record: \n{}".format(msg))
+            print(msg)
     except Exception as ex:
         pass
 
