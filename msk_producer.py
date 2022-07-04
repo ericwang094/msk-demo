@@ -8,7 +8,7 @@ log.basicConfig(format='$(asctime)s $(name)-12s $(levelname)-8s $(message)s',
                 level=log.INFO)
 
 def main(args):
-    msk_cluster_arn = 'arn:aws:kafka:ap-southeast-2:663493158590:cluster/MSKClusterDemo/4218d9df-08ab-4f76-92c1-2b0c2f3d4257-2'
+    msk_cluster_arn = 'arn:aws:kafka:ap-southeast-2:663493158590:cluster/MSKClusterDemo/c6916ce1-be46-4f19-9c73-adc9040c3b0a-2'
     topic = "topic1"
     message = "hello-from-msk-client"
 
